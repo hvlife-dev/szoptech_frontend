@@ -1,0 +1,11 @@
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: sep24_frontend
+    ports:
+      - "10011:8081"
+    volumes:
+      - ./frontend_data:/app/data:rw
+    restart: unless-stopped

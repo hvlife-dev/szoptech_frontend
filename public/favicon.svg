@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="6.1016412mm"
+   height="4.103508mm"
+   viewBox="0 0 6.1016412 4.103508"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="6.1016412"
+       height="4.103508"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-76.916097,-75.790345)">
+    <path
+       d="m 78.490894,75.790345 q 0.440267,0 0.762,0.124177 0.327377,0.124178 0.592666,0.378178 l -0.428978,0.502355 q -0.400755,-0.327377 -0.857955,-0.327377 -0.24271,0 -0.383821,0.1016 -0.141111,0.09596 -0.141111,0.282222 0,0.129822 0.06209,0.214488 0.06209,0.07902 0.220134,0.1524 0.158044,0.07338 0.474133,0.174978 0.59831,0.191911 0.880532,0.474133 0.282222,0.276577 0.282222,0.790221 0,0.366889 -0.186266,0.649111 -0.186267,0.276578 -0.536222,0.434622 -0.349955,0.1524 -0.829733,0.1524 -0.479777,0 -0.85231,-0.1524 -0.366889,-0.1524 -0.632178,-0.4064 l 0.468489,-0.513644 q 0.225778,0.191911 0.462844,0.287867 0.242711,0.09596 0.524933,0.09596 0.287866,0 0.451555,-0.124178 0.169333,-0.129822 0.169333,-0.355599 0,-0.146756 -0.06209,-0.242711 -0.06209,-0.1016 -0.214489,-0.180622 -0.1524,-0.07902 -0.440267,-0.169334 -0.64911,-0.197555 -0.925688,-0.485421 -0.270933,-0.287867 -0.270933,-0.728133 0,-0.338667 0.180622,-0.592666 0.180622,-0.259645 0.502355,-0.395111 0.321733,-0.141111 0.728133,-0.141111 z m 4.436533,0.807155 h -0.965199 v 3.200397 H 81.03654 V 76.5975 h -1.010355 v -0.7112 h 2.991553 z"
+       id="text58"
+       style="font-weight:bold;font-size:5.64444px;line-height:0px;font-family:'FiraSans Nerd Font Propo';-inkscape-font-specification:'FiraSans Nerd Font Propo Bold';fill:#fe8019;stroke-width:0.265"
+       aria-label="ST" />
+  </g>
+</svg>

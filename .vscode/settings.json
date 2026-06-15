@@ -1,0 +1,13 @@
+{
+  "rust-analyzer.cargo.features": ["ssr", "hydrate"],
+  "rust-analyzer.check.features": ["ssr", "hydrate"],
+  "rust-analyzer.procMacro.ignored": {
+    "leptos_macro": ["server"]
+  },
+  "rust-analyzer.diagnostics.disabled": [
+    "proc-macro-disabled",
+    "unresolved-proc-macro",
+    "macro-error"
+  ],
+  "rust-analyzer.diagnostics.enableExperimental": true
+}

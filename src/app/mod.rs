@@ -1,3 +1,4 @@
+use leptos::attr::src;
 use leptos::prelude::*;
 use leptos_meta::{Link, MetaTags, Script, Stylesheet, Title, provide_meta_context};
 use leptos_router::{
@@ -19,6 +20,7 @@ use crate::app::pages::product::ShopItemPage;
 use crate::app::pages::projects::ProjectsPage;
 use crate::app::pages::services::ServicesPage;
 use crate::app::pages::shopping::ShoppingPage;
+
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -48,19 +50,21 @@ pub fn App() -> impl IntoView {
         <Title text="SzopTech"/>
         <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
 
-        <Script>
-            r#"
-              var _paq = window._paq = window._paq || [];
-              _paq.push(['enableLinkTracking']);
-              (function() {
-                var u="//sys.szoptech.com/";
-                _paq.push(['setTrackerUrl', u+'c']);
-                _paq.push(['setSiteId', '1']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
-              })();
-            "#
-        </Script>
+        // <Script>
+        //     r#"
+        //       var _paq = window._paq = window._paq || [];
+        //       _paq.push(['enableLinkTracking']);
+        //       (function() {
+        //         var u="//sys.szoptech.com/";
+        //         _paq.push(['setTrackerUrl', u+'c']);
+        //         _paq.push(['setSiteId', '1']);
+        //         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        //         g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
+        //       })();
+        //     "#
+        // </Script>
+
+        <script defer type="module" src="szoptech.js" async></script>
 
         <Router>
             <Mt/>
@@ -71,6 +75,7 @@ pub fn App() -> impl IntoView {
                     <Route path=path!("projects") view=ProjectsPage/>
                     <Route path=path!("pricing") view=PricingPage/>
                     <Route path=path!("contact") view=ContactPage/>
+
                     <Route path=path!("shopping") view=ShoppingPage/>
                     <Route path=path!("/client/:id") view=ClientPage/>
                     <Route path=path!("/store/:id") view=ShopItemPage ssr=leptos_router::SsrMode::Async />

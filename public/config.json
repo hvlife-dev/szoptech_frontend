@@ -1,0 +1,94 @@
+{
+  "all": {
+    "main": ["#root", ".app-container"],
+
+    "navbar": ["nav", "a"],
+    "scroll": [95, 100],
+
+    "errors": true,
+    "loadingTime": true,
+    "reload": true,
+    "close": true,
+
+    "links": [
+      {
+        "selectors": [".utility-container", ".utility-left", "a"],
+        "category": "Contact",
+        "value": "Mail / Phone"
+      },
+      {
+        "selectors": [".utility-container", ".utility-right", "a"],
+        "category": "Contact",
+        "value": "Instagram"
+      }
+    ]
+  },
+
+  "sites": {
+    "*": {
+      "select": [
+        {
+          "selectors": ["select"],
+          "category": "Select",
+          "value": "test"
+        }
+      ]
+    },
+    "/": {
+      "scroll": [80],
+      "links": [
+        {
+          "selectors": [".hero-actions", "a"],
+          "category": "Link",
+          "value": ["[href]"]
+        }
+      ],
+      "focus": [
+        {
+          "once": true,
+          "selectors": [".card"],
+          "category": "Focus",
+          "value": ["h3"]
+        }
+      ]
+    },
+    "/services": {
+      "focus": [
+        {
+          "once": true,
+          "selectors": [".card"],
+          "category": "Focus",
+          "value": ["h3"]
+        }
+      ]
+    },
+    "/projects": {
+      "button": [
+        {
+          "selectors": ["button.carousel-btn"],
+          "value": ["[aria-label]"]
+        },
+        {
+          "indexed": true,
+          "selectors": [".carousel-dot"]
+        }
+      ]
+    },
+    "/pricing": {
+      "links": [
+        {
+          "selectors": [".pricing-content"],
+          "category": "Szoptech/",
+          "value": ["h2"]
+        }
+      ],
+      "input": [
+        {
+          "selectors": ["input"],
+          "category": "Szoptech/",
+          "value": ["h2"]
+        }
+      ]
+    }
+  }
+}

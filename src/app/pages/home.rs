@@ -26,8 +26,9 @@ pub fn HomePage() -> impl IntoView {
                     <A href="/services" attr:class="btn-toggle">"Nasze Usługi"</A>
                 </div>
             </div>
-
-            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+ 
+            // Delete style from service-grid selector
+            <div class="services-grid">
                 <div class="card">
                     <h3 class="service-title" style="color: var(--color-green);">"Pogotowie Serwisowe 24h/7"</h3>
                     <p class="service-desc">

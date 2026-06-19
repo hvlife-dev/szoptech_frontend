@@ -64,7 +64,7 @@ pub fn App() -> impl IntoView {
         //     "#
         // </Script>
 
-        <script defer type="module" src="szoptech.js" async></script>
+        <script defer type="module" src="./js/szoptech.js" async></script>
 
         <Router>
             <Mt/>

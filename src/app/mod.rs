@@ -20,14 +20,20 @@ use crate::app::pages::projects::ProjectsPage;
 use crate::app::pages::services::ServicesPage;
 use crate::app::pages::shopping::ShoppingPage;
 
+use leptos_meta::*;
+
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
         <!DOCTYPE html>
+        //@oskif
         <html lang="pl">
             <head>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+                //@oskif
+                <Meta name="language" content="pl"/>
+                
+                <Meta name="language" content="pl"/>
                 <AutoReload options=options.clone() />
                 <HydrationScripts options/>
                 <MetaTags/>

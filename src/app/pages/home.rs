@@ -10,7 +10,7 @@ pub fn HomePage() -> impl IntoView {
             <div class="hero-section">
                 <h1 class="hero-title">"Elektronika Przemysłowa & Automatyka"</h1>
                 <p class="hero-subtitle">
-                    "Naprawiamy od lat a z elektroniką lubimy się całe życie."
+                    "Naprawiamy od lat, a z elektroniką lubimy się całe życie."
                     <br/>
                     "Jesteśmy małą grupą ludzi, która po prostu kocha to co robi."
                     <br/>

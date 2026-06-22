@@ -8,6 +8,8 @@ use leptos_router::{
 mod components;
 mod hooks;
 mod pages;
+mod metatags;
+
 use crate::app::components::mt::Mt;
 use crate::app::components::navbar::Navbar;
 use crate::app::pages::client::ClientPage;
@@ -21,6 +23,8 @@ use crate::app::pages::services::ServicesPage;
 use crate::app::pages::shopping::ShoppingPage;
 
 use leptos_meta::*;
+use crate::app::metatags::seomt::*;
+
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -52,9 +56,7 @@ pub fn App() -> impl IntoView {
         <Meta name="language" content="pl" />
         <Meta property="og:type" content="website" />
         <Meta property="og:locale" content="pl_PL" />
-        <Meta name="description" content="Elektronika Przemysłowa & Automatyka" />
-        <Meta property="og:title" content="Szoptech" />
-        <Meta property="og:descritpion" content="Elektronika Przemysłowa & Automatyka" />
+        
 
         <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
 
@@ -74,14 +76,17 @@ pub fn App() -> impl IntoView {
 
         <Router>
             <Mt/>
+            <SeoMetaTags />
             <Routes transition=true fallback=|| "Page not found.".into_view()>
                 <ParentRoute path=path!("/") view=Navbar>
-                    <Route path=path!("") view=HomePage/>
-                    <Route path=path!("services") view=ServicesPage/>
-                    <Route path=path!("projects") view=ProjectsPage/>
-                    <Route path=path!("pricing") view=PricingPage/>
-                    <Route path=path!("contact") view=ContactPage/>
-                    <Route path=path!("shopping") view=ShoppingPage/>
+                    // @oskif
+                    // Add SeoMetaTags in Router
+                    <Route path=path!("") view=HomePage />
+                    <Route path=path!("services") view=ServicesPage />
+                    <Route path=path!("projects") view=ProjectsPage />
+                    <Route path=path!("pricing") view=PricingPage />
+                    <Route path=path!("contact") view=ContactPage />
+                    <Route path=path!("shopping") view=ShoppingPage />
                     <Route path=path!("/client/:id") view=ClientPage/>
                     <Route path=path!("/store/:id") view=ShopItemPage ssr=leptos_router::SsrMode::Async />
                     <Route path=path!("/estimate/:id") view=PricingItemPage ssr=leptos_router::SsrMode::Async />

@@ -30,10 +30,6 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
             <head>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                //@oskif
-                <Meta name="language" content="pl"/>
-                
-                <Meta name="language" content="pl"/>
                 <AutoReload options=options.clone() />
                 <HydrationScripts options/>
                 <MetaTags/>
@@ -51,7 +47,15 @@ pub fn App() -> impl IntoView {
 
     view! {
         <Stylesheet id="leptos" href="/pkg/frontend.css"/>
-        <Title text="SzopTech"/>
+
+        //@oskif
+        <Meta name="language" content="pl" />
+        <Meta property="og:type" content="website" />
+        <Meta property="og:locale" content="pl_PL" />
+        <Meta name="description" content="Elektronika Przemysłowa & Automatyka" />
+        <Meta property="og:title" content="Szoptech" />
+        <Meta property="og:descritpion" content="Elektronika Przemysłowa & Automatyka" />
+
         <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
 
         <Script>

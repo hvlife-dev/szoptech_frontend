@@ -3,19 +3,40 @@ use leptos_router::components::A;
 use crate::app::components::recommendations::RecommendationsCarousel;
 // use crate::app::components::divider::Divider;
 
+use leptos_meta::*;
+
 #[component]
 pub fn HomePage() -> impl IntoView {
+    let h2_style = "color: #ebdbb2; max-width: 600px; font-size: 1.1rem; text-align: center; font-weight: 400; margin: 0 auto;";
+
     view! {
+        <Title text="Szoptech - Elektronika Przemysłowa & Automatyka"/>
+
+        
         <div class="page-container">
             <div class="hero-section">
                 <h1 class="hero-title">"Elektronika Przemysłowa & Automatyka"</h1>
-                <p class="hero-subtitle">
-                    "Naprawiamy od lat, a z elektroniką lubimy się całe życie."
-                    <br/>
-                    "Jesteśmy małą grupą ludzi, która po prostu kocha to co robi."
-                    <br/>
-                    "Niesamowicie cieszy nas, że możemy z tego żyć."
-                </p>
+                
+                // @oskif
+
+                // <p class="hero-subtitle">
+                //     "Naprawiamy od lat, a z elektroniką lubimy się całe życie"
+                //     <br/>
+                //     "Jesteśmy małą grupą ludzi, która robi to co kocha"
+                //     <br/>
+                //     "Niesamowicie cieszy nas, że możemy z tego żyć"
+                // </p>
+
+                // @oskif
+                // remove '.' from end of line, change paragraph to header
+                // headers in better to subtitles because google search preffer it
+
+                <div class="hero-subtitle">
+                    <h2 style=h2_style>"Naprawiamy od lat, a z elektroniką lubimy się całe życie"</h2>
+                    <h2 style=h2_style>"Jesteśmy małą grupą ludzi, która robi to co kocha"</h2>
+                    <h2 style=h2_style>"Niesamowicie cieszy nas, że możemy z tego żyć"</h2>
+                </div>
+                
                 <div class="hero-actions">
                     <A href="/contact" attr:class="btn-primary">
                         <svg class="icon-svg" style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -26,7 +47,8 @@ pub fn HomePage() -> impl IntoView {
                     <A href="/services" attr:class="btn-toggle">"Nasze Usługi"</A>
                 </div>
             </div>
- 
+
+            // @oskif
             // Delete style from service-grid selector
             <div class="services-grid">
                 <div class="card">

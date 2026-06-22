@@ -56,6 +56,10 @@ pub fn App() -> impl IntoView {
         <Meta name="language" content="pl" />
         <Meta property="og:type" content="website" />
         <Meta property="og:locale" content="pl_PL" />
+        <Meta name="geo.region" content="PL" />
+        <Meta name="robots" content="index, follow" />
+
+        <Link rel="conditional" href="https://szoptech.com/" />
         
 
         <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>

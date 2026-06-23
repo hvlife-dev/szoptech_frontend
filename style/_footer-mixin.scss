@@ -1,10 +1,100 @@
-.app-footer {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-}
+$color-bg-base: #282828; // bg0
+$color-bg-surface: #3c3836; // bg1
+$color-bg-lighter: #504945; // bg2
+$color-bg-overlay: #665c54; // bg3
+$color-bg-input: #1d2021; // bg0_h (darker for inputs)
 
-.footer-center {
-    order: -1;
-    font-size: 0.75rem;
+$color-fg-primary: #ebdbb2; // fg
+$color-fg-muted: #a89984; // fg4
+$color-fg-light: #fbf1c7; // fg0
+
+$color-red: #fb4934; // bright red
+$color-orange: #fe8019; // bright orange (Primary Accent)
+$color-yellow: #fabd2f; // bright yellow
+$color-green: #b8bb26; // bright green
+$color-blue: #83a598; // bright blue
+$color-cyan: #8ec07c; // bright aqua
+$color-purple: #d3869b; // bright purple
+
+@mixin footer {
+  .app-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    margin-top: auto;
+    background-color: $color-bg-base;
+    border-top: 2px dashed $color-bg-overlay;
+    color: $color-fg-muted;
+    font-size: 0.85rem;
+    font-family: $font-mono;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-center {
+    opacity: 0.8;
+
+    .divider {
+      color: $color-bg-overlay;
+      margin: 0 0.5rem;
+    }
+  }
+
+  .app-footer a {
+    color: $color-fg-muted;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    &:hover {
+      color: $color-orange;
+      .icon {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .footer-link:hover .icon-svg {
+    transform: scale(1.1);
+    fill: $color-orange;
+  }
+
+  .heart {
+    color: $color-red;
+    display: inline-block;
+    animation: heartbeat 1.5s infinite;
+  }
+
+  .icon-svg {
+    width: 1.2em;
+    height: 1.2em;
+    fill: currentColor;
+    vertical-align: text-bottom;
+    transition: transform 0.2s ease;
+  }
+
+  @media (max-width: 1024px) {
+    .app-footer {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .footer-center {
+      order: -1;
+      font-size: 0.75rem;
+    }
+  }
 }

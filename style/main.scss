@@ -1,4 +1,5 @@
 @use "sass:color";
+@use './footer-mixin';
 @use './nav-mixin';    //@oskif - add my mixins file  
 
 /* ==========================================================================
@@ -464,78 +465,10 @@ input[type="number"] {
 /* ==========================================================================
    7. FOOTER
    ========================================================================== */
-.app-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  margin-top: auto;
-  background-color: $color-bg-base;
-  border-top: 2px dashed $color-bg-overlay;
-  color: $color-fg-muted;
-  font-size: 0.85rem;
-  font-family: $font-mono;
-  position: relative;
-  z-index: 2;
-}
 
-.footer-left, .footer-center, .footer-right {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+// @oskif
 
-.footer-center {
-  opacity: 0.8;
-
-  .divider {
-    color: $color-bg-overlay;
-    margin: 0 0.5rem;
-  }
-}
-
-.app-footer a {
-  color: $color-fg-muted;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-
-  &:hover {
-    color: $color-orange;
-
-    .icon {
-      transform: scale(1.2);
-    }
-  }
-}
-
-.heart {
-  color: $color-red;
-  display: inline-block;
-  animation: heartbeat 1.5s infinite;
-}
-
-.icon-svg {
-  width: 1.2em;
-  height: 1.2em;
-  fill: currentColor;
-  vertical-align: text-bottom;
-  transition: transform 0.2s ease;
-}
-
-.footer-link:hover .icon-svg {
-  transform: scale(1.1);
-  fill: $color-orange;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  10% { transform: scale(1.1); }
-  20% { transform: scale(1); }
-}
+@include footer-mixin.footer;
 
 /* ==========================================================================
    8. TOASTS
@@ -1628,17 +1561,7 @@ a.shop-card {
     }
   }
 
-  .app-footer {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  .footer-center {
-    order: -1;
-    font-size: 0.75rem;
-  }
-
+  
   .main-content {
     padding-bottom: 2rem;
   }

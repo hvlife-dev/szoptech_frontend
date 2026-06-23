@@ -1,4 +1,5 @@
 @use "sass:color";
+@use './nav-mixin';    //@oskif - add my mixins file  
 
 /* ==========================================================================
    1. FONTS & IMPORTS
@@ -990,10 +991,28 @@ input[type="number"] {
 /* ==========================================================================
    13. RECOMMENDATIONS CONVEYOR
    ========================================================================== */
+   
+//@oskif
+  
+//This fragment generate problems with scaling between 1024 - 1200 px width 
+//You can add steps to between 100% - 130% or set diplay none to invisible element 
+
+
+// .recommendations-section {
+//   overflow: hidden;
+//   width: 130%;
+//   margin: -15%;
+// }
+
 .recommendations-section {
-  width: 130%;
   overflow: hidden;
-  margin-left: -15%;
+  width: 100%;
+  margin: auto;
+
+  @media (min-width: 1200px) {
+    width: 130%;
+    margin: -15%;
+  }
 }
 
 .section-title {
@@ -1584,34 +1603,9 @@ a.shop-card {
 /* ==========================================================================
    MOBILE OVERRIDES
    ========================================================================== */
+@include nav-mixin.nav;
+
 @media (max-width: 1024px) {
-  .top-navbar {
-    position: relative;
-  }
-
-  .nav-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem 0 2rem;
-    width: 100%;
-  }
-
-  .nav-links-container {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .brand {
-    display: none;
-  }
-
-  .top-navbar {
-    position: relative;
-  }
-
   .nav-link {
     flex: 1;
     flex-direction: column;

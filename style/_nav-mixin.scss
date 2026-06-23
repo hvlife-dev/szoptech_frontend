@@ -1,0 +1,49 @@
+$phone: 420px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin nav {
+  .top-navbar {
+    position: relative;
+  }
+
+  .nav-links-container {
+    width: 100%;
+    display: flex;
+  }
+
+  .nav-container{
+    padding: 1rem 0.5rem 0 0.5rem;
+  }
+
+  @media (min-width: $phone) {
+    .nav-container{
+      padding: 1rem 1rem 0 1rem;
+    }
+    .nav-links-container {
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    .nav-container{
+      padding: 1rem 3rem 0 3rem;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    .nav-container{
+      padding: 0;
+    }
+
+    .nav-links-container {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: $desktop) {
+    .brand {
+      display: none;
+    }
+  }
+}

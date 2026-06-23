@@ -21,6 +21,10 @@ export class SelectorHelper {
       if (!value || value === "") return value;
 
       if (Array.isArray(value)) {
+        if (value[0] === "&") {
+          return documentSelector.value;
+        }
+
         const selector = value.join("");
 
         if (selector[0] === "[") {

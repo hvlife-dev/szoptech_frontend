@@ -1,3 +1,4 @@
+import { SelectorHelper } from "../../helpers/SelectorHelper.js";
 import { SelectorEventManager } from "../DefaultSelectorEventManager.js";
 
 const TYPE = "input";
@@ -11,6 +12,7 @@ const EVENTS = {
 
 export class Input extends SelectorEventManager {
   static instance = null;
+  timer = null;
 
   constructor() {
     if (Input.instance) return Input.instance;
@@ -18,34 +20,17 @@ export class Input extends SelectorEventManager {
     super(TYPE);
     Input.instance = this;
 
-    let timer;
-    let oldValue = "";
+    this.defaultEventCallback = this.defaultEventCallback.bind(this);
 
-    const changeCallback = (e) => {
-      clearTimeout(timer);
+    super.addSiteEvents(EVENTS.INPUT);
+    super.addAllEvents(EVENTS.INPUT);
+  }
 
-      timer = setTimeout(() => {
-        oldValue = e.target.value;
-        console.log(oldValue);
-      }, 1000);
-    };
-
-    const blurCallback = (e) => {
-      clearTimeout(timer);
-      const value = e.target.value;
-      if (value !== oldValue) console.log(value);
-    };
-
-    super.addSiteEvents(EVENTS.INPUT, changeCallback);
-    super.addSiteEvents(EVENTS.BLUR, blurCallback);
-    super.addSiteEvents(EVENTS.FOCUS, (e) => {
-      oldValue = e.target.value;
-    });
-
-    super.addAllEvents(EVENTS.INPUT, changeCallback);
-    super.addAllEvents(EVENTS.BLUR, blurCallback);
-    super.addAllEvents(EVENTS.FOCUS, (e) => {
-      oldValue = e.target.value;
-    });
+  // override member
+  defaultEventCallback(item, querySelector = null, type = null) {
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      super.defaultEventCallback(item, querySelector, type);
+    }, 1000);
   }
 }

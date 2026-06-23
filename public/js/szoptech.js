@@ -3,7 +3,7 @@ import {
   loadingCallback,
   onLoadCallback,
   resizeCallback,
-} from "./js/modules/WindowEvents.js";
+} from "./modules/WindowEvents.js";
 
 window.addEventListener("load", loadingCallback);
 

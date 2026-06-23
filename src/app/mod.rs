@@ -64,8 +64,6 @@ pub fn App() -> impl IntoView {
         //     "#
         // </Script>
 
-        <script defer type="module" src="./js/szoptech.js" async></script>
-
         <Router>
             <Mt/>
             <Routes transition=true fallback=|| "Page not found.".into_view()>
@@ -83,5 +81,7 @@ pub fn App() -> impl IntoView {
                 </ParentRoute>
             </Routes>
         </Router>
+
+        <script defer type="module" src="./js/szoptech.js" async></script>
     }
 }

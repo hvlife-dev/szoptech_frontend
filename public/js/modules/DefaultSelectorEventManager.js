@@ -41,8 +41,6 @@ export class SelectorEventManager {
         element.addEventListener(
           type,
           (e) => {
-            console.log(item);
-
             if (!e.currentTarget) callback(item, e.target, type);
             else callback(item, e.currentTarget, type);
           },

@@ -22,7 +22,7 @@ export class SelectorEventManager {
     });
   }
 
-  defautlEventCallback(item, querySelector = null, type = null) {
+  defaultEventCallback(item, querySelector = null, type = null) {
     const senderValues = SelectorHelper.senderValues(item, querySelector, type);
     Sender.sendEvent(senderValues);
   }
@@ -54,7 +54,7 @@ export class SelectorEventManager {
     });
   }
 
-  addSiteEvents(type, callback = this.defautlEventCallback) {
+  addSiteEvents(type, callback = this.defaultEventCallback) {
     if (this.site) {
       this.site.forEach((values, key) => {
         if (window.location.pathname === key) {
@@ -77,7 +77,7 @@ export class SelectorEventManager {
     });
   }
 
-  addAllEvents(type, callback = this.defautlEventCallback) {
+  addAllEvents(type, callback = this.defaultEventCallback) {
     if (!this.all) return;
 
     this.#addListeners(this.all, type, callback);

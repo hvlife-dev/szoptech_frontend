@@ -465,9 +465,10 @@ input[type="number"] {
    7. FOOTER
    ========================================================================== */
 .app-footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  
   padding: 1.5rem 2rem;
   margin-top: auto;
   background-color: $color-bg-base;
@@ -477,21 +478,33 @@ input[type="number"] {
   font-family: $font-mono;
   position: relative;
   z-index: 2;
-}
-
-.footer-left, .footer-center, .footer-right {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.footer-center {
-  opacity: 0.8;
 
   .divider {
     color: $color-bg-overlay;
-    margin: 0 0.5rem;
+    user-select: none;
   }
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: start;
+}
+
+.footer-center {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: center;
+  opacity: 0.8;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: end;
 }
 
 .app-footer a {
@@ -1629,12 +1642,16 @@ a.shop-card {
   }
 
   .app-footer {
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
     text-align: center;
+    padding: 2rem 1rem;
   }
 
-  .footer-center {
+  .footer-left, .footer-center, .footer-right {
+    flex-wrap: wrap;
+    justify-content: center;
     order: -1;
     font-size: 0.75rem;
   }

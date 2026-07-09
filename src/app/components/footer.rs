@@ -24,31 +24,26 @@ pub fn Footer() -> impl IntoView {
 
     view! {
         <footer class="app-footer">
-            <div>
-                <h3>"SzopTech ™ " {year}</h3>
-                <p>"Elektronika przemysłowa, automatyka, serwis PLC, HMI i CNC."</p>
+            <div class="footer-left">
+                <a href="/services" class="footer-link">"Usługi"</a>
+                <span class="divider">"·"</span>
+                <a href="/projects" class="footer-link">"Realizacje"</a>
+                <span class="divider">"·"</span>
+                <a href="/pricing" class="footer-link">"Wycena"</a>
+                <span class="divider">"·"</span>
+                <a href="/shopping" class="footer-link">"Zakupy"</a>
             </div>
-            <div>
-            <h3>Usługi</h3>
-                <ul>
-                    <li>"Naprawa elektroniki przemysłowej"</li>
-                    <li>"Programowanie PLC"</li>
-                    <li>"Serwis HMI"</li>
-                    <li>"Diagnostyka maszyn CNC"</li>
-                </ul>
+
+            <div class="footer-center">
+                <span>"SzopTech ™ " {year}</span>
             </div>
-            <div>
-                <h3>"Kontakt"</h3>
-                <p>"Śląsk"</p>
-                <p>"Email: kontakt@szoptech.com"</p>
-                <p>"Telefon: +48 664 124 850"</p>
-            </div>
-            <div>
-                <h3>
-                    "Obsługujemy firmy na terenie Śląska:"
-                    <br/>                    
-                    "Rybnik, Katowice, Gliwice, Żory, Tychy i okolice."
-                </h3>
+
+            <div class="footer-right">
+                <a href="/contact" class="footer-link">"Kontakt"</a>
+                <span class="divider">"·"</span>
+                <a href="/sitemap.xml" class="footer-link" target="_blank">
+                    "Sitemap"
+                </a>
             </div>
         </footer>
     }

@@ -3,67 +3,40 @@ $tablet: 768px;
 $desktop: 1024px;
 
 @mixin nav {
-  .nav-contaier {
-    display: flex;
-    width: 100%;
-    max-width: 1024px;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-  }
-  
-  .nav-links-container {
-    width: 100%;
-    justify-content: center;
-    padding: 0.25rem 0 0 0;
-
-  }
-
   .top-navbar {
     position: relative;
   }
 
+  .nav-links-container {
+    width: 100%;
+    display: flex;
+  }
+
+  .nav-container{
+    padding: 1rem 0.5rem 0 0.5rem;
+  }
+
   @media (min-width: $phone) {
-    .nav-contaier {
-      align-items: center;
-      justify-content: space-between;
-      padding: 2rem 1rem 0 1rem;
+    .nav-container{
+      padding: 1rem 1rem 0 1rem;
     }
     .nav-links-container {
-      align-items: flex-end;
+      justify-content: space-between;
     }
   }
 
   @media (min-width: $tablet) {
-    .nav-contaier {
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-links-container {
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
+    .nav-container{
+      padding: 1rem 3rem 0 3rem;
     }
   }
 
   @media (min-width: $desktop) {
-    .app-container {
-      width: 100%;
-    }
-
-   .nav-contaier {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin: 0 auto;
-      padding: 1rem 2rem 0 2rem;
-      width: 100%;
+    .nav-container{
+      padding: 0;
     }
 
     .nav-links-container {
-      width: 100%;
       justify-content: flex-end;
     }
   }

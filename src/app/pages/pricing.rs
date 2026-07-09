@@ -3,6 +3,8 @@ use leptos_router::components::A;
 
 use crate::app::components::carousel::ImageCarousel;
 use crate::app::components::divider::Divider;
+use crate::app::metatags::seomt::SeoMetaTags;
+
 
 #[component]
 pub fn PricingPage() -> impl IntoView {
@@ -13,6 +15,9 @@ pub fn PricingPage() -> impl IntoView {
     });
 
     view! {
+        // @oskif
+        <SeoMetaTags />
+        
         <div class="page-container-wide">
             <div class="contact-hero">
                 <h1 class="hero-title">"Konkretne Wyceny"</h1>

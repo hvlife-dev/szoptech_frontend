@@ -60,27 +60,25 @@ pub fn App() -> impl IntoView {
         <Meta name="robots" content="index, follow" />
 
         <Link rel="conditional" href="https://szoptech.com/" />
+        <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
         
 
-        <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
-
-        <Script>
-            r#"
-              var _paq = window._paq = window._paq || [];
-              _paq.push(['enableLinkTracking']);
-              (function() {
-                var u="//sys.szoptech.com/";
-                _paq.push(['setTrackerUrl', u+'c']);
-                _paq.push(['setSiteId', '1']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
-              })();
-            "#
-        </Script>
+        // <Script>
+        //     r#"
+        //       var _paq = window._paq = window._paq || [];
+        //       _paq.push(['enableLinkTracking']);
+        //       (function() {
+        //         var u="//sys.szoptech.com/";
+        //         _paq.push(['setTrackerUrl', u+'c']);
+        //         _paq.push(['setSiteId', '1']);
+        //         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        //         g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
+        //       })();
+        //     "#
+        // </Script>
 
         <Router>
             <Mt/>
-            <SeoMetaTags />
             <Routes transition=true fallback=|| "Page not found.".into_view()>
                 <ParentRoute path=path!("/") view=Navbar>
                     // @oskif

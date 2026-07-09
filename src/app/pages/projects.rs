@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use crate::app::components::carousel::ImageCarousel;
+use crate::app::metatags::seomt::SeoMetaTags;
 
 #[component]
 pub fn ProjectsPage() -> impl IntoView {
@@ -11,6 +12,9 @@ pub fn ProjectsPage() -> impl IntoView {
     let (selected_company, set_selected_company) = signal(String::new());
 
     view! {
+        // oskif
+        <SeoMetaTags />
+
         <div class="page-container-wide">
             <Suspense fallback=move || view! { <div class="loading-state">"Pobieranie danych telemetrycznych..."</div> }>
                 {move || Suspend::new(async move {

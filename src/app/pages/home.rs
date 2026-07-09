@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 use leptos_router::components::A;
-use crate::app::components::recommendations::RecommendationsCarousel;
+use crate::app::{components::recommendations::RecommendationsCarousel, metatags::seomt::SeoMetaTags};
 // use crate::app::components::divider::Divider;
 
 use leptos_meta::*;
@@ -10,6 +10,8 @@ pub fn HomePage() -> impl IntoView {
     let h2_style = "color: #ebdbb2; max-width: 600px; font-size: 1.1rem; text-align: center; font-weight: 400; margin: 0 auto;";
 
     view! {
+        // oskif
+        <SeoMetaTags />
         <Title text="Szoptech - Elektronika Przemysłowa & Automatyka"/>
 
         

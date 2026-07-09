@@ -21,6 +21,7 @@ pub struct MetaDescriptions;
 impl MetaDescriptions {
     pub const HOME: &'static str = "Naprawiamy od lat a z elektroniką lubimy się całe życie. Jesteśmy małą grupą ludzi, która po prostu kocha to co robi. Niesamowicie cieszy nas, że możemy z tego żyć";
     pub const SERVICES: &'static str = "Elektronika przemysłowa: PLC, HMI, falowniki, zasilacze i CNC. Profesjonalne naprawy, diagnostyka źródła problemu, programowanie i serwis maszyn.";
+    // TODO desc for realizacje
     pub const PROJECTS: &'static str = "Realizacje";
     pub const PRICING: &'static str = "Cena gwarantowana niezależnie od stanu urządzenia. Roczna gwarancja na wszystkie wymienione naprawy";
     pub const CONTACT: &'static str = "Rozmawiacie Państwo tylko i wyłącznie z osobami technicznymi. Nie istnieje u nas coś takiego jak dział rea4lizacji.";

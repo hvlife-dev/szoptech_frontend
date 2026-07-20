@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 use crate::app::components::carousel::ImageCarousel;
 use crate::app::metatags::seomt::SeoMetaTags;
+use crate::app::components::divider::Divider;
 
 #[component]
 pub fn ProjectsPage() -> impl IntoView {
@@ -37,6 +38,16 @@ pub fn ProjectsPage() -> impl IntoView {
                     unique_companies.dedup();
 
                     view! {
+                        // @oskif
+                        // Add h1 to seo
+                        <div class="contact-hero">
+                            <h1 class="hero-title">"Realizacje"</h1>
+                            // @oskif
+                            // TODO Dodać opis
+                            <h3 class="hero-subtitle">"Tutaj dodać jakiś opis nie wiem jaki"</h3>
+                            <p class="hero-subtitle">"Tutaj dodać jakiś opis nie wiem jaki"</p>
+                        </div>
+                        <Divider />
                         <div class="filter-panel">
                             <div class="form-group">
                                 <label>"Kategorie / Rodzaje napraw"</label>

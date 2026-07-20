@@ -7,7 +7,12 @@ pub fn ServicesPage() -> impl IntoView {
        <SeoMetaTags />
 
         <div class="page-container">
-
+            // @oskif
+            // Add h1 to seo
+            <div class="contact-hero">
+                <h1 class="hero-title">"Nasze usługi"</h1>
+            </div>
+        
             <div class="t-grid">
                 <div class="card">
                     <h3 class="service-title">"Elektronika, PLC, HMI, falowniki, zasilacze, komputery, enkodery i wiele więcej!"</h3>

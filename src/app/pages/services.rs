@@ -1,9 +1,11 @@
 use leptos::prelude::*;
-use crate::app::components::divider::Divider;
+use crate::app::{components::divider::Divider, metatags::seomt::SeoMetaTags};
 
 #[component]
 pub fn ServicesPage() -> impl IntoView {
     view! {
+       <SeoMetaTags />
+
         <div class="page-container">
 
             <div class="t-grid">

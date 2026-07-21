@@ -2,6 +2,7 @@ use leptos::prelude::*;
 use leptos_router::hooks::use_params_map;
 use leptos_meta::{Title, Meta};
 use crate::app::components::carousel::ImageCarousel;
+use crate::app::metatags::seomt::SeoMetaTags;
 
 #[component]
 pub fn ShopItemPage() -> impl IntoView {
@@ -13,6 +14,9 @@ pub fn ShopItemPage() -> impl IntoView {
     });
 
     view! {
+        // @oskif
+        <SeoMetaTags />
+
         <Suspense fallback=move || view! { <div class="page-container-wide">"Ładowanie..."</div> }>
             {move || Suspend::new(async move {
                 let item_data = item_resource.await;

@@ -1,9 +1,12 @@
 use leptos::prelude::*;
-use crate::app::components::divider::Divider;
+use crate::app::{components::divider::Divider, metatags::seomt::SeoMetaTags};
 
 #[component]
 pub fn ContactPage() -> impl IntoView {
     view! {
+        // @oskif
+        <SeoMetaTags />
+
         <div class="page-container">
             <div class="contact-hero">
                 <h1 class="hero-title">"Kontakt"</h1>

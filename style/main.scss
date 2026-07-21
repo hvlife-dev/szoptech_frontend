@@ -1,34 +1,35 @@
 @use "sass:color";
-@use './nav-mixin';    //@oskif - add my mixins file  
+@use "./footer-mixin";
+@use "./nav-mixin"; //@oskif - add my mixins file
 
 /* ==========================================================================
    1. FONTS & IMPORTS
    ========================================================================== */
 @import url("https://code.cdn.mozilla.net/fonts/fira.css");
 
-$font-sans: 'Fira Sans', sans-serif;
-$font-mono: 'Fira Mono', monospace;
+$font-sans: "Fira Sans", sans-serif;
+$font-mono: "Fira Mono", monospace;
 
 /* ==========================================================================
    2. PALETTE VARIABLES (Gruvbox Dark)
    ========================================================================== */
-$color-bg-base:    #282828; // bg0
+$color-bg-base: #282828; // bg0
 $color-bg-surface: #3c3836; // bg1
 $color-bg-lighter: #504945; // bg2
 $color-bg-overlay: #665c54; // bg3
-$color-bg-input:   #1d2021; // bg0_h (darker for inputs)
+$color-bg-input: #1d2021; // bg0_h (darker for inputs)
 
 $color-fg-primary: #ebdbb2; // fg
-$color-fg-muted:   #a89984; // fg4
-$color-fg-light:   #fbf1c7; // fg0
+$color-fg-muted: #a89984; // fg4
+$color-fg-light: #fbf1c7; // fg0
 
-$color-red:        #fb4934; // bright red
-$color-orange:     #fe8019; // bright orange (Primary Accent)
-$color-yellow:     #fabd2f; // bright yellow
-$color-green:      #b8bb26; // bright green
-$color-blue:       #83a598; // bright blue
-$color-cyan:       #8ec07c; // bright aqua
-$color-purple:     #d3869b; // bright purple
+$color-red: #fb4934; // bright red
+$color-orange: #fe8019; // bright orange (Primary Accent)
+$color-yellow: #fabd2f; // bright yellow
+$color-green: #b8bb26; // bright green
+$color-blue: #83a598; // bright blue
+$color-cyan: #8ec07c; // bright aqua
+$color-purple: #d3869b; // bright purple
 
 /* ==========================================================================
    3. BASE / RESET
@@ -51,7 +52,12 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   margin-top: 0;
   color: $color-fg-light;
@@ -67,7 +73,8 @@ a {
   }
 }
 
-pre, code {
+pre,
+code {
   font-family: $font-mono;
 }
 
@@ -116,7 +123,7 @@ input[type="number"] {
     left: -50%;
     width: 200%;
     height: 200%;
-    background-image: url('/logo.svg');
+    background-image: url("/logo.svg");
     background-repeat: repeat;
     background-size: 500px;
     transform: rotate(-45deg);
@@ -220,7 +227,9 @@ input[type="number"] {
     width: 18px;
     height: 18px;
     opacity: 0.8;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
   }
 
   &:hover .nav-icon,
@@ -266,7 +275,9 @@ input[type="number"] {
   margin-bottom: 1rem;
   /* Hard tactile drop shadow */
   box-shadow: 4px 4px 0 rgba(29, 32, 33, 0.8);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 
   &.error {
     border-color: $color-red;
@@ -321,7 +332,8 @@ input[type="number"] {
     color: $color-bg-base !important;
     cursor: default;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       transform: none;
       box-shadow: 3px 3px 0 rgba(29, 32, 33, 0.8);
     }
@@ -338,9 +350,15 @@ input[type="number"] {
   margin-bottom: 1rem;
   font-family: $font-mono;
 
-  .keyword { color: $color-red; }
-  .string  { color: $color-green; }
-  .func    { color: $color-blue; }
+  .keyword {
+    color: $color-red;
+  }
+  .string {
+    color: $color-green;
+  }
+  .func {
+    color: $color-blue;
+  }
 }
 
 .separator-container {
@@ -468,7 +486,7 @@ input[type="number"] {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  
+
   padding: 1.5rem 2rem;
   margin-top: auto;
   background-color: $color-bg-base;
@@ -545,9 +563,16 @@ input[type="number"] {
 }
 
 @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  10% { transform: scale(1.1); }
-  20% { transform: scale(1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
 }
 
 /* ==========================================================================
@@ -609,8 +634,14 @@ input[type="number"] {
 }
 
 @keyframes slide-in {
-  from { transform: translateX(120%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -667,8 +698,12 @@ input[type="number"] {
     transform: translateY(-50%) scale(0.95);
   }
 
-  &.prev { left: 0.5rem; }
-  &.next { right: 0.5rem; }
+  &.prev {
+    left: 0.5rem;
+  }
+  &.next {
+    right: 0.5rem;
+  }
 
   svg {
     width: 20px;
@@ -783,8 +818,12 @@ input[type="number"] {
   width: 56px;
   height: 56px;
 
-  &.prev { left: 2rem; }
-  &.next { right: 2rem; }
+  &.prev {
+    left: 2rem;
+  }
+  &.next {
+    right: 2rem;
+  }
 
   svg {
     width: 28px;
@@ -793,8 +832,12 @@ input[type="number"] {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -1004,12 +1047,11 @@ input[type="number"] {
 /* ==========================================================================
    13. RECOMMENDATIONS CONVEYOR
    ========================================================================== */
-   
-//@oskif
-  
-//This fragment generate problems with scaling between 1024 - 1200 px width 
-//You can add steps to between 100% - 130% or set diplay none to invisible element 
 
+//@oskif
+
+//This fragment generate problems with scaling between 1024 - 1200 px width
+//You can add steps to between 100% - 130% or set diplay none to invisible element
 
 // .recommendations-section {
 //   overflow: hidden;
@@ -1043,8 +1085,20 @@ input[type="number"] {
   overflow: hidden;
   position: relative;
   padding: 1.5rem 0;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 .marquee-track {
@@ -1118,8 +1172,12 @@ input[type="number"] {
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1rem)); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
 }
 
 /* ==========================================================================
@@ -1397,12 +1455,12 @@ a.shop-card {
   }
 
   &.brand-allegro {
-    --brand-main: #FF5A00;
-    --brand-hover: #CC4800;
+    --brand-main: #ff5a00;
+    --brand-hover: #cc4800;
   }
   &.brand-ebay {
-    --brand-main: #0064D2;
-    --brand-hover: #004A9E;
+    --brand-main: #0064d2;
+    --brand-hover: #004a9e;
   }
   &.brand-default {
     --brand-main: #{$color-cyan};
@@ -1528,7 +1586,9 @@ a.shop-card {
   @media (hover: hover) {
     &:hover {
       color: $color-green; /* Highlights green to indicate a comms link */
-      .utility-icon { opacity: 1; }
+      .utility-icon {
+        opacity: 1;
+      }
     }
   }
 }
@@ -1649,7 +1709,9 @@ a.shop-card {
     padding: 2rem 1rem;
   }
 
-  .footer-left, .footer-center, .footer-right {
+  .footer-left,
+  .footer-center,
+  .footer-right {
     flex-wrap: wrap;
     justify-content: center;
     order: -1;
@@ -1685,7 +1747,8 @@ a.shop-card {
       flex-direction: column;
       gap: 1rem;
 
-      .btn-primary, .btn-toggle {
+      .btn-primary,
+      .btn-toggle {
         width: 100%;
       }
     }
@@ -1747,7 +1810,7 @@ a.shop-card {
     width: 100%;
     margin-left: 0;
   }
-    .lightbox-image {
+  .lightbox-image {
     max-width: 95vw;
     border-width: 2px;
   }
@@ -1762,8 +1825,12 @@ a.shop-card {
   .lightbox-btn {
     width: 40px;
     height: 40px;
-    &.prev { left: 0.5rem; }
-    &.next { right: 0.5rem; }
+    &.prev {
+      left: 0.5rem;
+    }
+    &.next {
+      right: 0.5rem;
+    }
   }
   .pricing-card {
     display: flex;
@@ -1775,7 +1842,7 @@ a.shop-card {
       max-width: none;
     }
 
-  .pricing-footer {
+    .pricing-footer {
       flex-direction: column;
       align-items: flex-start;
       gap: 1.5rem;
@@ -1797,7 +1864,6 @@ a.shop-card {
   .search-input-wrapper {
     width: 100%;
   }
-
 }
 
 /* ==========================================================================
@@ -1811,7 +1877,7 @@ a.shop-card {
 ::view-transition-new(workspace) {
   mix-blend-mode: normal;
   will-change: transform, opacity;
-  background-color: var(--color-bg-base); 
+  background-color: var(--color-bg-base);
 }
 
 ::view-transition-old(workspace) {

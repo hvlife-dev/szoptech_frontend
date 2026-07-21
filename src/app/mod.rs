@@ -7,8 +7,8 @@ use leptos_router::{
 
 mod components;
 mod hooks;
-mod pages;
 mod metatags;
+mod pages;
 
 use crate::app::components::mt::Mt;
 use crate::app::components::navbar::Navbar;
@@ -22,9 +22,8 @@ use crate::app::pages::projects::ProjectsPage;
 use crate::app::pages::services::ServicesPage;
 use crate::app::pages::shopping::ShoppingPage;
 
-use leptos_meta::*;
 use crate::app::metatags::seomt::*;
-
+use leptos_meta::*;
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
@@ -61,21 +60,21 @@ pub fn App() -> impl IntoView {
 
         <Link rel="conditional" href="https://szoptech.com/" />
         <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
-        
 
-        // <Script>
-        //     r#"
-        //       var _paq = window._paq = window._paq || [];
-        //       _paq.push(['enableLinkTracking']);
-        //       (function() {
-        //         var u="//sys.szoptech.com/";
-        //         _paq.push(['setTrackerUrl', u+'c']);
-        //         _paq.push(['setSiteId', '1']);
-        //         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        //         g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
-        //       })();
-        //     "#
-        // </Script>
+
+        <Script>
+            r#"
+              var _paq = window._paq = window._paq || [];
+              _paq.push(['enableLinkTracking']);
+              (function() {
+                var u="//sys.szoptech.com/";
+                _paq.push(['setTrackerUrl', u+'c']);
+                _paq.push(['setSiteId', '1']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
+              })();
+            "#
+        </Script>
 
         <Router>
             <Mt/>

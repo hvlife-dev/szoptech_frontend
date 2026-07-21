@@ -1,5 +1,5 @@
-use leptos::prelude::*;
 use crate::app::{components::divider::Divider, metatags::seomt::SeoMetaTags};
+use leptos::prelude::*;
 
 #[component]
 pub fn ContactPage() -> impl IntoView {
@@ -23,7 +23,11 @@ pub fn ContactPage() -> impl IntoView {
                 <div class="card contact-info-card">
                     <div class="info-group">
                         <label>"Adres Siedziby"</label>
-                        <p class="info-value">"ul. Głożyńska 239a"<br/>"44-310 Radlin, Polska"</p>
+                        <p class="info-value">
+                            "ul. Głożyńska 239a"<br/>
+                            "44-310 Radlin, Polska"<br/>
+                            "NIP: PL6472613339"
+                        </p>
                     </div>
 
                     <div class="info-group">

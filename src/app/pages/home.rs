@@ -1,6 +1,8 @@
+use crate::app::{
+    components::recommendations::RecommendationsCarousel, metatags::seomt::SeoMetaTags,
+};
 use leptos::prelude::*;
 use leptos_router::components::A;
-use crate::app::{components::recommendations::RecommendationsCarousel, metatags::seomt::SeoMetaTags};
 // use crate::app::components::divider::Divider;
 
 use leptos_meta::*;
@@ -14,31 +16,17 @@ pub fn HomePage() -> impl IntoView {
         <SeoMetaTags />
         <Title text="Szoptech - Elektronika Przemysłowa & Automatyka"/>
 
-        
+
         <div class="page-container">
             <div class="hero-section">
                 <h1 class="hero-title">"Elektronika Przemysłowa & Automatyka"</h1>
-                
-                // @oskif
-
-                // <p class="hero-subtitle">
-                //     "Naprawiamy od lat, a z elektroniką lubimy się całe życie"
-                //     <br/>
-                //     "Jesteśmy małą grupą ludzi, która robi to co kocha"
-                //     <br/>
-                //     "Niesamowicie cieszy nas, że możemy z tego żyć"
-                // </p>
-
-                // @oskif
-                // remove '.' from end of line, change paragraph to header
-                // headers in better to subtitles because google search preffer it
 
                 <div class="hero-subtitle">
                     <h2 style=h2_style>"Naprawiamy od lat, a z elektroniką lubimy się całe życie"</h2>
                     <h2 style=h2_style>"Jesteśmy małą grupą ludzi, która robi to co kocha"</h2>
                     <h2 style=h2_style>"Niesamowicie cieszy nas, że możemy z tego żyć"</h2>
                 </div>
-                
+
                 <div class="hero-actions">
                     <A href="/contact" attr:class="btn-primary">
                         <svg class="icon-svg" style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -56,7 +44,7 @@ pub fn HomePage() -> impl IntoView {
                 <div class="card">
                     <h3 class="service-title" style="color: var(--color-green);">"Pogotowie Serwisowe 24h/7"</h3>
                     <p class="service-desc">
-                        "Awarie nie znają harmonogramu pracy. Dysponujemy w pełni wyposażonym mobilnym warsztatem, co pozwala nam na szybki dojazd, diagnozę a nawet naprawę bezpośrednio przy maszynie klienta o każdej porze."
+                        "Awarie nie znają harmonogramu pracy. Dysponujemy w pełni wyposażonym mobilnym warsztatem, co pozwala nam na szybki dojazd, diagnozę, a nawet naprawę bezpośrednio przy maszynie klienta o każdej porze."
                     </p>
                 </div>
 

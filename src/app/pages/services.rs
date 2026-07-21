@@ -1,5 +1,5 @@
-use leptos::prelude::*;
 use crate::app::{components::divider::Divider, metatags::seomt::SeoMetaTags};
+use leptos::prelude::*;
 
 #[component]
 pub fn ServicesPage() -> impl IntoView {
@@ -11,7 +11,7 @@ pub fn ServicesPage() -> impl IntoView {
             <div class="t-grid">
                 <div class="card">
                     <h3 class="service-title">"Elektronika, PLC, HMI, falowniki, zasilacze, komputery, enkodery i wiele więcej!"</h3>
-                    <p class="service-desc">"Profesjonalne podejście do każdej naprawy. Nie zajmujemy się tylko wymianą uszkodzonych elementów. Znajdujemy źródło problemu, usuwamy je, testujemy i wtedy dopiero mamy pewność, że urządzenie wróciło do pełnej sprawności. Cała naprawiana przez nas elektronika, która pracuje w ciężkich warunkach, maszynach CNC lub jest narażona na duże zapylenie pyłem stalowym jest zabezpieczana. Przedłuża to żywotność urządzeń i niweluje przyszłościowe problemy. Podczas każdej naprawy urządzenia są myte i wracają do Państwa w jak najlepszym stanie wizualnym, zależnym od stopnia zużycia obudów oraz ich dostępności. Niedostępne części do urządzeń oraz obudowy jesteśmy w stanie wykonywać sami, umożliwiając tym naprawę jeszcze większą ilość urządzeń."</p>
+                    <p class="service-desc">"Profesjonalne podejście do każdej naprawy. Nie zajmujemy się tylko wymianą uszkodzonych elementów. Znajdujemy źródło problemu, usuwamy je, testujemy, i wtedy dopiero mamy pewność, że urządzenie wróciło do pełnej sprawności. Cała naprawiana przez nas elektronika, która pracuje w ciężkich warunkach, maszynach CNC, lub jest narażona na duże zapylenie pyłem stalowym, jest zabezpieczana. Przedłuża to żywotność urządzeń i niweluje potencjalne problemy w przyszłości. Podczas każdej naprawy urządzenia są myte i wracają do Państwa w jak najlepszym stanie wizualnym, zależnym od stopnia zużycia obudów oraz ich dostępności. Niedostępne części do urządzeń oraz obudowy jesteśmy w stanie wykonywać sami, umożliwiając tym naprawę jeszcze większej ilości urządzeń."</p>
                 </div>
 
                 <div class="card">

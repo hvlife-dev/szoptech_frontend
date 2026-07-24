@@ -3,6 +3,7 @@ use leptos_router::components::A;
 use crate::app::components::divider::Divider;
 use crate::app::components::carousel::ImageCarousel;
 use crate::app::metatags::seomt::SeoMetaTags;
+use leptos_meta::*;
 
 struct ShopLink {
     name: &'static str,
@@ -30,7 +31,7 @@ pub fn ShoppingPage() -> impl IntoView {
         },
     ];
 
-    let shop_items_resource = Resource::new(|| (), |_| async move {
+    let shop_items_resource: Resource<Vec<ShopItem>> = Resource::new(|| (), |_| async move {
         get_shop_items().await.unwrap_or_default()
     });
 

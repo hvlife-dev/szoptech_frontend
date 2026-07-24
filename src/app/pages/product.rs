@@ -14,9 +14,6 @@ pub fn ShopItemPage() -> impl IntoView {
     });
 
     view! {
-        // @oskif
-        <SeoMetaTags />
-
         <Suspense fallback=move || view! { <div class="page-container-wide">"Ładowanie..."</div> }>
             {move || Suspend::new(async move {
                 let item_data = item_resource.await;
@@ -25,6 +22,10 @@ pub fn ShopItemPage() -> impl IntoView {
                     Some(item) => view! {
                         <Title text=format!("{} | Sklep Szoptech", item.title) />
                         <Meta name="description" content=item.description.clone() />
+
+                        // @oskif
+                        <Meta property="og:title" content=item.title.clone() />
+                        <Meta property="og:description" content=item.description.clone() />
 
                         <div class="page-container">
                             <a href="/shopping" class="back-link">"← Wróć do sklepu"</a>
@@ -82,6 +83,10 @@ pub fn PricingItemPage() -> impl IntoView {
                     Some(item) => view! {
                         <Title text=format!("{} | Sklep Szoptech", item.title) />
                         <Meta name="description" content=item.description.clone() />
+
+                        // @oskif
+                        <Meta property="og:title" content=item.title.clone() />
+                        <Meta property="og:description" content=item.description.clone() />
 
                         <div class="page-container">
                             <a href="/pricing" class="back-link">"← Wróć do sklepu"</a>

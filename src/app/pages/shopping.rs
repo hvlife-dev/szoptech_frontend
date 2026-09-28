@@ -18,7 +18,7 @@ pub fn ShoppingPage() -> impl IntoView {
     let shops = vec![
         ShopLink {
             name: "Allegro",
-            url: "https://allegro.pl/",
+            url: "https://allegro.pl/uzytkownik/SzopTech",
             logo_path: "/allegro.svg",
             brand_class: "brand-allegro",
         },

@@ -45,7 +45,7 @@ pub fn ProjectItemPage() -> impl IntoView {
                                     }}
                                 </div>
 
-                                <h2 class="project-title">{item.title.clone()}</h2>
+                                <h2 class="project-title-2">{item.title.clone()}</h2>
                                 <div class="project-desc" inner_html=item.description.clone()></div>
                             </div>
                         </div>

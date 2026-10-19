@@ -649,35 +649,40 @@ input[type="number"] {
    ========================================================================== */ 
 .carousel-container {
   position: relative;
+  z-index: 5;
   width: 100%;
   aspect-ratio: 4 / 3;
-  background-color: $color-bg-input; /* Darker back for images */
+  background-color: $color-bg-input;
   border-radius: 2px;
   overflow: hidden;
   margin-bottom: 1rem;
   border: 2px solid $color-bg-overlay;
-  min-width: 0; /* Prevents CSS Grid cell expansion */
+  min-width: 0;
 }
 
 .carousel-image,
 .carousel-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .carousel-image {
-    transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
 }
 
 .carousel-video {
-    background-color: #000;
+  background-color: #000;
+  pointer-events: auto;
 }
 
 .carousel-btn {
@@ -695,7 +700,8 @@ input[type="number"] {
   justify-content: center;
   cursor: pointer;
   transition: all 0.1s ease;
-  z-index: 2;
+  z-index: 10;
+  pointer-events: auto;
 
   @media (hover: hover) {
     &:hover {
@@ -723,6 +729,7 @@ input[type="number"] {
     width: 20px;
     height: 20px;
     stroke-width: 2.5;
+    pointer-events: none;
   }
 }
 
@@ -733,7 +740,8 @@ input[type="number"] {
   transform: translateX(-50%);
   display: flex;
   gap: 0.4rem;
-  z-index: 2;
+  z-index: 10;
+  pointer-events: auto;
   background-color: rgba($color-bg-base, 0.8);
   padding: 0.3rem 0.6rem;
   border-radius: 2px;

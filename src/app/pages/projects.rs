@@ -1,12 +1,14 @@
-use leptos::prelude::*;
 use crate::app::components::carousel::ImageCarousel;
 use crate::app::metatags::seomt::SeoMetaTags;
+use leptos::prelude::*;
+use leptos_router::components::A;
 
 #[component]
 pub fn ProjectsPage() -> impl IntoView {
-    let projects_resource = Resource::new(|| (), |_| async move {
-        get_public_projects().await.unwrap_or_default()
-    });
+    let projects_resource = Resource::new(
+        || (),
+        |_| async move { get_public_projects().await.unwrap_or_default() },
+    );
 
     let (selected_type, set_selected_type) = signal(String::new());
     let (selected_company, set_selected_company) = signal(String::new());
@@ -70,7 +72,7 @@ pub fn ProjectsPage() -> impl IntoView {
                                     let match_type = t_filter.is_empty() || p.project_type == t_filter;
                                     let match_comp = c_filter.is_empty() || p.company_name.as_deref().unwrap_or("") == c_filter;
                                     match_type && match_comp
-                                }).collect();
+                                }).cloned().collect();
 
                                 if filtered_projects.is_empty() {
                                     return view! {
@@ -82,7 +84,7 @@ pub fn ProjectsPage() -> impl IntoView {
 
                                 filtered_projects.into_iter().map(|item| {
                                     view! {
-                                        <div class="card project-card">
+                                        <div class="card project-card item-link item-link">
                                             <ImageCarousel
                                                 collection_id=item.collection_id.clone()
                                                 record_id=item.id.clone()
@@ -99,8 +101,10 @@ pub fn ProjectsPage() -> impl IntoView {
                                                 }}
                                             </div>
 
-                                            <h2 class="project-title">{item.title.clone()}</h2>
-                                            <div class="project-desc" inner_html=item.description.clone()></div>
+                                            <A href=format!("/project/{}", item.id) attr:class="pricing-content">
+                                                <h2 class="project-title">{item.title.clone()}</h2>
+                                                <div class="project-desc" inner_html=item.description.clone()></div>
+                                            </A>
                                         </div>
                                     }
                                 }).collect_view().into_any()
@@ -113,7 +117,7 @@ pub fn ProjectsPage() -> impl IntoView {
     }
 }
 
-use crate::server::state::{Project, PbResponse};
+use crate::server::state::{PbResponse, Project};
 use reqwest;
 
 #[server]

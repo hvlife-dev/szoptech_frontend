@@ -13,29 +13,25 @@ axum = { version = "^0.8", optional = true }
 console_error_panic_hook = { version = "^0.1", optional = true }
 leptos_axum = { version = "^0.8", optional = true }
 leptos_meta = { version = "^0.8" }
-tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
+tokio = { version = "^1", features = ["rt-multi-thread"], optional = true }
 wasm-bindgen = { version = "^0.2", optional = true }
 
-gloo-timers = "^0.3"
-serde = { version = "^1.0", features = ["derive"]}
-serde_json = { version = "^1.0"}
+gloo-timers = "^0.4"
+serde = { version = "^1.0", features = ["derive"] }
+serde_json = { version = "^1.0" }
 reqwest = { version = "^0.13", features = ["json", "query"] }
 chrono = { version = "^0.4", features = ["serde"] }
 js-sys = "^0.3"
 
 [features]
-hydrate = [
-    "leptos/hydrate",
-    "dep:console_error_panic_hook",
-    "dep:wasm-bindgen",
-]
+hydrate = ["leptos/hydrate", "dep:console_error_panic_hook", "dep:wasm-bindgen"]
 ssr = [
-    "dep:axum",
-    "dep:tokio",
-    "dep:leptos_axum",
-    "leptos/ssr",
-    "leptos_meta/ssr",
-    "leptos_router/ssr",
+  "dep:axum",
+  "dep:tokio",
+  "dep:leptos_axum",
+  "leptos/ssr",
+  "leptos_meta/ssr",
+  "leptos_router/ssr",
 ]
 
 # Defines a size-optimized profile for the WASM bundle in release mode

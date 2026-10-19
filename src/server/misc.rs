@@ -1,12 +1,17 @@
-use chrono::{Timelike, Local};
+use chrono::{Local, Timelike};
 
 use crate::server::state::AppState;
 
 pub fn log(state: &AppState, level: u8, msg: &str) {
     println!("{}", msg);
     let t = Local::now();
-    let formatted_msg = format!("{:02}:{:02}:{:02} | {}", 
-        t.hour(), t.minute(), t.second(), msg);
+    let formatted_msg = format!(
+        "{:02}:{:02}:{:02} | {}",
+        t.hour(),
+        t.minute(),
+        t.second(),
+        msg
+    );
 
     let mut data = state.write().unwrap();
     data.logs.push_back(formatted_msg);
@@ -16,7 +21,6 @@ pub fn log(state: &AppState, level: u8, msg: &str) {
 
     if level > 0 {
         data.toast_counter += 1;
-        data.latest_toast = Some((level, msg.to_string())); 
+        data.latest_toast = Some((level, msg.to_string()));
     }
 }
-

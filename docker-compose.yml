@@ -1,9 +1,9 @@
 services:
   frontend:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
-    container_name: sep24_frontend
+    container_name: szoptech_frontend
     ports:
       - "10011:8081"
     volumes:

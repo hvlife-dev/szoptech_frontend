@@ -1,5 +1,13 @@
 use leptos::prelude::*;
 
+fn is_video_file(filename: &str) -> bool {
+    let lower = filename.to_lowercase();
+    lower.ends_with(".mp4")
+        || lower.ends_with(".webm")
+        || lower.ends_with(".ogg")
+        || lower.ends_with(".mov")
+}
+
 #[component]
 pub fn ImageCarousel(
     collection_id: String,
@@ -29,32 +37,56 @@ pub fn ImageCarousel(
         });
     };
 
-    let current_img_url = move || {
+    let current_media = Memo::new(move |_| {
         let filename = &images[current_idx.get()];
-        format!(
+        let url = format!(
             "https://db.szoptech.com/api/files/{}/{}/{}",
             collection_id, record_id, filename
-        )
-    };
+        );
+        let is_video = is_video_file(filename);
+        (url, is_video)
+    });
+
+    let alt_main = alt_text.clone();
+    let alt_zoom = alt_text;
 
     view! {
         <div class="carousel-container">
-            <img
-                src=current_img_url.clone()
-                alt=alt_text.clone()
-                class="carousel-image cursor-zoom"
-                on:click=move |_| set_is_zoomed.set(true)
-            />
+            {move || {
+                let (url, is_vid) = current_media.get();
+                let alt = alt_main.clone();
+
+                if is_vid {
+                    view! {
+                        <video
+                            src=url
+                            controls
+                            playsinline
+                            preload="metadata"
+                            class="carousel-image carousel-video"
+                        />
+                    }.into_any()
+                } else {
+                    view! {
+                        <img
+                            src=url
+                            alt=alt
+                            class="carousel-image cursor-zoom"
+                            on:click=move |_| set_is_zoomed.set(true)
+                        />
+                    }.into_any()
+                }
+            }}
 
             {if images_len > 1 {
                 view! {
-                    <button class="carousel-btn prev" on:click=move |_| prev_slide() aria-label="Previous image">
+                    <button class="carousel-btn prev" on:click=move |_| prev_slide() aria-label="Previous slide">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6"></polyline>
                         </svg>
                     </button>
 
-                    <button class="carousel-btn next" on:click=move |_| next_slide() aria-label="Next image">
+                    <button class="carousel-btn next" on:click=move |_| next_slide() aria-label="Next slide">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="9 18 15 12 9 6"></polyline>
                         </svg>
@@ -79,9 +111,11 @@ pub fn ImageCarousel(
 
         {move || {
             if is_zoomed.get() {
+                let (url, is_vid) = current_media.get();
+                let alt = alt_zoom.clone();
+
                 view! {
                     <div class="carousel-lightbox-overlay" on:click=move |_| set_is_zoomed.set(false)>
-
                         <button class="lightbox-close" aria-label="Close">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -89,12 +123,27 @@ pub fn ImageCarousel(
                             </svg>
                         </button>
 
-                        <img
-                            src=current_img_url()
-                            alt=alt_text.clone()
-                            class="lightbox-image"
-                            on:click=move |e| e.stop_propagation()
-                        />
+                        {if is_vid {
+                            view! {
+                                <video
+                                    src=url
+                                    controls
+                                    autoplay
+                                    playsinline
+                                    class="lightbox-image lightbox-video"
+                                    on:click=move |e| e.stop_propagation()
+                                />
+                            }.into_any()
+                        } else {
+                            view! {
+                                <img
+                                    src=url
+                                    alt=alt
+                                    class="lightbox-image"
+                                    on:click=move |e| e.stop_propagation()
+                                />
+                            }.into_any()
+                        }}
 
                         {if images_len > 1 {
                             view! {

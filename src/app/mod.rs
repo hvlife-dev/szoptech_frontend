@@ -17,6 +17,7 @@ use crate::app::pages::contact::ContactPage;
 use crate::app::pages::home::HomePage;
 use crate::app::pages::pricing::PricingPage;
 use crate::app::pages::product::PricingItemPage;
+use crate::app::pages::product::ProjectItemPage;
 use crate::app::pages::product::ShopItemPage;
 use crate::app::pages::projects::ProjectsPage;
 use crate::app::pages::services::ServicesPage;
@@ -91,6 +92,7 @@ pub fn App() -> impl IntoView {
                     <Route path=path!("/client/:id") view=ClientPage/>
                     <Route path=path!("/store/:id") view=ShopItemPage ssr=leptos_router::SsrMode::Async />
                     <Route path=path!("/estimate/:id") view=PricingItemPage ssr=leptos_router::SsrMode::Async />
+                    <Route path=path!("/project/:id") view=ProjectItemPage ssr=leptos_router::SsrMode::Async />
                 </ParentRoute>
             </Routes>
         </Router>

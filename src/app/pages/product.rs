@@ -1,8 +1,67 @@
-use leptos::prelude::*;
-use leptos_router::hooks::use_params_map;
-use leptos_meta::{Title, Meta};
 use crate::app::components::carousel::ImageCarousel;
 use crate::app::metatags::seomt::SeoMetaTags;
+use leptos::prelude::*;
+use leptos_meta::{Meta, Title};
+use leptos_router::hooks::use_params_map;
+
+#[component]
+pub fn ProjectItemPage() -> impl IntoView {
+    let params = use_params_map();
+    let id = move || params.read().get("id").unwrap_or_default();
+
+    let item_resource = Resource::new(id, |id| async move {
+        get_single_project_item(id.clone()).await.ok()
+    });
+
+    view! {
+        // @oskif
+        <SeoMetaTags />
+
+        <Suspense fallback=move || view! { <div class="page-container-wide">"Ładowanie..."</div> }>
+            {move || Suspend::new(async move {
+                let item_data = item_resource.await;
+
+                match item_data {
+                    Some(item) => view! {
+                        <Title text=format!("{} | Sklep Szoptech", item.title) />
+                        <Meta name="description" content=item.description.clone() />
+
+                        <div class="page-container">
+                            <a href="/projects" class="back-link">"← Wróć do sklepu"</a>
+                            <div class="card project-card item-link">
+                                <ImageCarousel
+                                    collection_id=item.collection_id.clone()
+                                    record_id=item.id.clone()
+                                    images=item.images.clone()
+                                    alt_text=item.title.clone()
+                                />
+
+                                <div class="project-meta">
+                                    <span class="meta-badge type">{item.project_type.clone()}</span>
+                                    {if let Some(comp) = &item.company_name {
+                                        view! { <span class="meta-badge company">{comp.clone()}</span> }.into_any()
+                                    } else {
+                                        view! { <span></span> }.into_any()
+                                    }}
+                                </div>
+
+                                <h2 class="project-title">{item.title.clone()}</h2>
+                                <div class="project-desc" inner_html=item.description.clone()></div>
+                            </div>
+                        </div>
+                    }.into_any(),
+
+                    None => view! {
+                        <div class="page-container">
+                            <h1>"Nie znaleziono produktu."</h1>
+                            <a href="/projects">"Wróć do oferty"</a>
+                        </div>
+                    }.into_any()
+                }
+            })}
+        </Suspense>
+    }
+}
 
 #[component]
 pub fn ShopItemPage() -> impl IntoView {
@@ -125,32 +184,74 @@ pub fn PricingItemPage() -> impl IntoView {
     }
 }
 
-use crate::server::state::{ShopItem, PricingItem};
+use crate::server::state::{PricingItem, Project, ShopItem};
 use reqwest;
 
 #[server]
-async fn get_single_shop_item(id: String) -> Result<ShopItem, ServerFnError<String>> {
-    let url = format!("https://db.szoptech.com/api/collections/shop_items/records/{}", id);
-    let response = reqwest::get(&url).await.map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
+async fn get_single_project_item(id: String) -> Result<Project, ServerFnError<String>> {
+    let url = format!(
+        "https://db.szoptech.com/api/collections/projects/records/{}",
+        id
+    );
+    let response = reqwest::get(&url)
+        .await
+        .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
 
     if !response.status().is_success() {
-        return Err(ServerFnError::<String>::ServerError("Nie znaleziono produktu.".into()));
+        return Err(ServerFnError::<String>::ServerError(
+            "Nie znaleziono produktu.".into(),
+        ));
     }
 
-    let item = response.json::<ShopItem>().await.map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
+    let item = response
+        .json::<Project>()
+        .await
+        .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
+    Ok(item)
+}
+
+#[server]
+async fn get_single_shop_item(id: String) -> Result<ShopItem, ServerFnError<String>> {
+    let url = format!(
+        "https://db.szoptech.com/api/collections/shop_items/records/{}",
+        id
+    );
+    let response = reqwest::get(&url)
+        .await
+        .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
+
+    if !response.status().is_success() {
+        return Err(ServerFnError::<String>::ServerError(
+            "Nie znaleziono produktu.".into(),
+        ));
+    }
+
+    let item = response
+        .json::<ShopItem>()
+        .await
+        .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
     Ok(item)
 }
 
 #[server]
 async fn get_single_pricing_item(id: String) -> Result<PricingItem, ServerFnError<String>> {
-    let url = format!("https://db.szoptech.com/api/collections/pricing_items/records/{}", id);
-    let response = reqwest::get(&url).await.map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
+    let url = format!(
+        "https://db.szoptech.com/api/collections/pricing_items/records/{}",
+        id
+    );
+    let response = reqwest::get(&url)
+        .await
+        .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
 
     if !response.status().is_success() {
-        return Err(ServerFnError::<String>::ServerError("Nie znaleziono wyceny.".into()));
+        return Err(ServerFnError::<String>::ServerError(
+            "Nie znaleziono wyceny.".into(),
+        ));
     }
 
-    let item = response.json::<PricingItem>().await.map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
+    let item = response
+        .json::<PricingItem>()
+        .await
+        .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?;
     Ok(item)
 }
-

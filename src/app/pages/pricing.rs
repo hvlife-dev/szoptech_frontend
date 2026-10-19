@@ -5,19 +5,19 @@ use crate::app::components::carousel::ImageCarousel;
 use crate::app::components::divider::Divider;
 use crate::app::metatags::seomt::SeoMetaTags;
 
-
 #[component]
 pub fn PricingPage() -> impl IntoView {
     let (search_query, set_search_query) = signal(String::new());
 
-    let pricing_resource = Resource::new(|| (), |_| async move {
-        get_pricing_items().await.unwrap_or_default()
-    });
+    let pricing_resource = Resource::new(
+        || (),
+        |_| async move { get_pricing_items().await.unwrap_or_default() },
+    );
 
     view! {
         // @oskif
         <SeoMetaTags />
-        
+
         <div class="page-container-wide">
             <div class="contact-hero">
                 <h1 class="hero-title">"Konkretne Wyceny"</h1>

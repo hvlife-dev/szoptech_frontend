@@ -1,12 +1,12 @@
-use leptos::prelude::*;
-use gloo_timers::callback::Interval;
 use crate::server::api::{get_engine_status, send_command};
 use crate::server::state::{EngineCommand, GlobalState};
+use gloo_timers::callback::Interval;
+use leptos::prelude::*;
 
 #[derive(Clone)]
 pub struct EngineController {
     pub status: Resource<Result<GlobalState, ServerFnError>>,
-    
+
     pub set_active: Callback<bool>,
 }
 
@@ -21,7 +21,6 @@ pub fn use_engine() -> EngineController {
         async move { send_command(cmd).await }
     });
 
-
     let set_active = Callback::new(move |new_val: bool| {
         dispatch.dispatch(EngineCommand::Active(new_val));
         status.update(|data| {
@@ -29,11 +28,11 @@ pub fn use_engine() -> EngineController {
                 state.active = new_val;
             }
         });
-        set_timeout(move || status.refetch(), std::time::Duration::from_millis(200));
+        set_timeout(
+            move || status.refetch(),
+            std::time::Duration::from_millis(200),
+        );
     });
 
-    EngineController {
-        status,
-        set_active,
-    }
+    EngineController { status, set_active }
 }

@@ -646,7 +646,7 @@ input[type="number"] {
 
 /* ==========================================================================
    9. CAROUSEL
-   ========================================================================== */
+   ========================================================================== */ 
 .carousel-container {
   position: relative;
   width: 100%;
@@ -656,14 +656,28 @@ input[type="number"] {
   overflow: hidden;
   margin-bottom: 1rem;
   border: 2px solid $color-bg-overlay;
+  min-width: 0; /* Prevents CSS Grid cell expansion */
+}
+
+.carousel-image,
+.carousel-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.carousel-video {
+    background-color: #000;
 }
 
 .carousel-btn {
@@ -829,6 +843,12 @@ input[type="number"] {
     width: 28px;
     height: 28px;
   }
+}
+
+.lightbox-video {
+    max-width: 90vw;
+    max-height: 85vh;
+    outline: none;
 }
 
 @keyframes fade-in {

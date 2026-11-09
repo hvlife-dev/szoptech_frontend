@@ -122,7 +122,7 @@ use reqwest;
 
 #[server]
 pub async fn get_public_projects() -> Result<Vec<Project>, ServerFnError<String>> {
-    let url = "https://db.szoptech.com/api/collections/projects/records?sort=-created";
+    let url = "https://db.szoptech.com/api/collections/projects/records?sort=-created&perPage=500";
 
     let response = reqwest::get(url)
         .await

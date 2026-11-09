@@ -127,7 +127,11 @@ pub async fn get_client_dashboard(
     let projects_resp = client_req
         .get(projects_url)
         .header("Authorization", format!("Bearer {}", admin_token))
-        .query(&[("filter", filter_query), ("sort", "-created".to_string())])
+        .query(&[
+            ("filter", filter_query),
+            ("sort", "-created".to_string()),
+            ("perPage", "500".to_string()),
+        ])
         .send()
         .await
         .map_err(|e| ServerFnError::<String>::ServerError(e.to_string()))?

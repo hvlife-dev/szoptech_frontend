@@ -120,7 +120,8 @@ use reqwest;
 
 #[server]
 pub async fn get_pricing_items() -> Result<Vec<PricingItem>, ServerFnError<String>> {
-    let url = "https://db.szoptech.com/api/collections/pricing_items/records?sort=-created";
+    let url =
+        "https://db.szoptech.com/api/collections/pricing_items/records?sort=-created&perPage=500";
 
     let response = reqwest::get(url)
         .await

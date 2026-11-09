@@ -1,18 +1,18 @@
+use axum::Extension;
 use axum::Router;
 use axum::routing::get;
-use leptos::logging::log;
-use leptos::prelude::*;
-use leptos_axum::{generate_route_list, LeptosRoutes};
-use axum::Extension;
 use frontend::app::*;
-use frontend::server::state::init_state;
 use frontend::server::engine;
 use frontend::server::sitemap::generate_sitemap;
-
+use frontend::server::state::init_state;
+use leptos::logging::log;
+use leptos::prelude::*;
+use leptos_axum::{LeptosRoutes, generate_route_list};
 
 // #[cfg(feature = "ssr")]
 #[tokio::main]
 async fn main() {
+    dotenvy::dotenv().ok();
     let app_state = init_state();
     let engine_state = app_state.clone();
     tokio::spawn(async move {

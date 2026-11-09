@@ -22,6 +22,7 @@ serde_json = { version = "^1.0" }
 reqwest = { version = "^0.13", features = ["json", "query"] }
 chrono = { version = "^0.4", features = ["serde"] }
 js-sys = "^0.3"
+dotenvy = { version = "^0.15", optional = true }
 
 [features]
 hydrate = ["leptos/hydrate", "dep:console_error_panic_hook", "dep:wasm-bindgen"]
@@ -29,6 +30,7 @@ ssr = [
   "dep:axum",
   "dep:tokio",
   "dep:leptos_axum",
+  "dep:dotenvy",
   "leptos/ssr",
   "leptos_meta/ssr",
   "leptos_router/ssr",
@@ -75,9 +77,6 @@ end2end-dir = "end2end"
 
 #  The browserlist query used for optimizing the CSS.
 browserquery = "defaults"
-
-# The environment Leptos will run in, usually either "DEV" or "PROD"
-env = "DEV"
 
 # The features to use when compiling the bin target
 #

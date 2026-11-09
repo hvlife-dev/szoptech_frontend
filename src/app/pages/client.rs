@@ -84,9 +84,15 @@ pub async fn get_client_dashboard(
     let client_req = reqwest::Client::new();
 
     let auth_url = "https://db.szoptech.com/api/collections/_superusers/auth-with-password";
+    let identity = std::env::var("PB_ADMIN_EMAIL").map_err(|e| {
+        ServerFnError::<String>::ServerError(format!("Missing PB_ADMIN_EMAIL: {e}"))
+    })?;
+    let password = std::env::var("PB_ADMIN_PASSWORD").map_err(|e| {
+        ServerFnError::<String>::ServerError(format!("Missing PB_ADMIN_PASSWORD: {e}"))
+    })?;
     let auth_payload = serde_json::json!({
-        "identity": "dev@retardigrade.me",
-        "password": "7uWiOFTV4wiIaj"
+        "identity": identity,
+        "password": password
     });
 
     let auth_res = client_req

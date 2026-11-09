@@ -4,6 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: szoptech_frontend
+    env_file:
+      - .env
     ports:
       - "10011:8081"
     volumes:

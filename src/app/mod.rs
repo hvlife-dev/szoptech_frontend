@@ -10,7 +10,7 @@ mod hooks;
 mod metatags;
 mod pages;
 
-use crate::app::components::mt::Mt;
+use crate::app::{components::mt::Mt, pages::shopitemtmp::TmpShopItem};
 use crate::app::components::navbar::Navbar;
 use crate::app::pages::client::ClientPage;
 use crate::app::pages::contact::ContactPage;
@@ -63,19 +63,19 @@ pub fn App() -> impl IntoView {
         <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
 
 
-        <Script>
-            r#"
-              var _paq = window._paq = window._paq || [];
-              _paq.push(['enableLinkTracking']);
-              (function() {
-                var u="//sys.szoptech.com/";
-                _paq.push(['setTrackerUrl', u+'c']);
-                _paq.push(['setSiteId', '1']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
-              })();
-            "#
-        </Script>
+        // <Script>
+        //     r#"
+        //       var _paq = window._paq = window._paq || [];
+        //       _paq.push(['enableLinkTracking']);
+        //       (function() {
+        //         var u="//sys.szoptech.com/";
+        //         _paq.push(['setTrackerUrl', u+'c']);
+        //         _paq.push(['setSiteId', '1']);
+        //         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        //         g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
+        //       })();
+        //     "#
+        // </Script>
 
         <Router>
             <Mt/>
@@ -89,6 +89,7 @@ pub fn App() -> impl IntoView {
                     <Route path=path!("pricing") view=PricingPage />
                     <Route path=path!("contact") view=ContactPage />
                     <Route path=path!("shopping") view=ShoppingPage />
+                    <Route path=path!("test") view=TmpShopItem />
                     <Route path=path!("/client/:id") view=ClientPage/>
                     <Route path=path!("/store/:id") view=ShopItemPage ssr=leptos_router::SsrMode::Async />
                     <Route path=path!("/estimate/:id") view=PricingItemPage ssr=leptos_router::SsrMode::Async />

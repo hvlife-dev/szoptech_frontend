@@ -132,6 +132,8 @@ pub fn Navbar() -> impl IntoView {
                             </svg>
                             <span>"Zakupy"</span>
                         </A>
+
+                        <A href="/test" attr:class="nav-link">"Test"</A>
                     </nav>
                 </div>
             </header>

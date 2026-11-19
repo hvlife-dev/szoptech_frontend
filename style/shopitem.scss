@@ -1,0 +1,117 @@
+@use "./colors" as *;
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 2rem;
+
+  .project-title-2 {
+    font-size: 26px;
+    color: $color-orange;
+  }
+
+  p,
+  h1,
+  h3 {
+    margin: 0;
+  }
+}
+
+.product-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 1.4rem;
+}
+
+.tag-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1.75rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 0.75rem;
+}
+
+.price-desc {
+  text-align: justify;
+  font-weight: 300;
+  font-style: italic;
+  padding: 0.4 1.2rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.price-container {
+  margin-top: 0.5rem;
+  border-top: dashed 2px gray;
+  padding-top: 0.75rem;
+  padding-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.prie-text-1 {
+  font-size: 0.9rem;
+  color: $color-orange;
+  font-weight: 400;
+}
+
+.prie-text-2 {
+  font-size: 1.3rem;
+  color: $color-green;
+  font-weight: 700;
+  text-shadow: rgba(29, 32, 33, 0.8) 2px 2px 0px;
+}
+
+.sm-text {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 200;
+}
+
+.btn-1,
+.btn-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  background-color: transparent;
+  border-radius: 4px;
+  color: white;
+  border-width: 2px;
+  border-style: solid;
+  background-color: $color-bg-surface;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.btn-1 {
+  border-color: $color-orange;
+  color: $color-orange;
+}
+
+.btn-2 {
+  color: $color-fg-muted;
+  border-color: $color-bg-lighter;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 9fr 4fr 4fr;
+  gap: 1rem;
+}

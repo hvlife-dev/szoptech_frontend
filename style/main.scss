@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "./footer-mixin";
 @use "./nav-mixin"; //@oskif - add my mixins file
+@use "./shopitem.scss";
 
 /* ==========================================================================
    1. FONTS & IMPORTS
@@ -646,7 +647,7 @@ input[type="number"] {
 
 /* ==========================================================================
    9. CAROUSEL
-   ========================================================================== */ 
+   ========================================================================== */
 .carousel-container {
   position: relative;
   z-index: 5;
@@ -854,9 +855,9 @@ input[type="number"] {
 }
 
 .lightbox-video {
-    max-width: 90vw;
-    max-height: 85vh;
-    outline: none;
+  max-width: 90vw;
+  max-height: 85vh;
+  outline: none;
 }
 
 @keyframes fade-in {
@@ -1299,7 +1300,7 @@ input[type="number"] {
       text-decoration: underline;
     }
   }
-  
+
   .project-title-2 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;

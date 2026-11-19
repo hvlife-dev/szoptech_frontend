@@ -18,3 +18,4 @@ Cargo.lock
 .env
 temp/*
 .vscode/**
+.vscode/settings.json

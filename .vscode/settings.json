@@ -1,4 +1,19 @@
 {
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+
+  "rust-analyzer.rustfmt.overrideCommand": [
+    "leptosfmt",
+    "--stdin",
+    "--rustfmt"
+  ],
+
+  "rust-analyzer.procMacro.enable": true,
+
   "rust-analyzer.cargo.features": ["ssr", "hydrate"],
   "rust-analyzer.check.features": ["ssr", "hydrate"],
   "rust-analyzer.procMacro.ignored": {

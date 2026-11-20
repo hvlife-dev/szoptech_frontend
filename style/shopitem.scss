@@ -1,5 +1,11 @@
 @use "./colors" as *;
 
+$color-row-light: rgba(255, 255, 255, 0.1);
+$color-row-dark: rgba(0, 0, 0, 0.1);
+$shaddow: 4px 4px 20px -2px rgba(29, 32, 33, 0.6);
+$btn-shaddow: 4px 4px 6px -2px rgba(29, 32, 33, 0.6);
+$text-shaddow: 1px 1px 2px rgba(29, 32, 33, 0.7);
+
 .product-grid {
   display: grid;
   grid-template-columns: 3fr 4fr;
@@ -8,6 +14,7 @@
   .project-title-2 {
     font-size: 26px;
     color: $color-orange;
+    text-shadow: $text-shaddow;
   }
 
   p,
@@ -22,12 +29,41 @@
   flex-direction: column;
   width: 100%;
   row-gap: 1.4rem;
+
+  .carousel-container {
+    margin-bottom: 0;
+    box-shadow: $shaddow;
+    border-left: solid 4px $color-orange;
+    border-radius: 4px;
+  }
 }
 
 .tag-row {
+  // margin-top: -0.8rem;
   display: flex;
+  width: 100%;
   flex-direction: row;
-  column-gap: 1.75rem;
+  justify-content: space-between;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.tag-name {
+  font-weight: 400;
+  font-size: 0.9em;
+  margin: auto;
+}
+
+.tag-content {
+  margin-top: -1px;
+  font-size: 1.1em;
+  color: $color-orange;
+  font-weight: 600;
+  text-shadow: $text-shaddow;
 }
 
 .header {
@@ -35,13 +71,21 @@
   flex-direction: column;
   width: 100%;
   row-gap: 0.75rem;
+
+  h1,
+  h3 {
+    margin: 0;
+    text-shadow: $text-shaddow;
+  }
 }
 
 .price-desc {
+  border-left: solid 4px $color-orange;
+  border-radius: 4px;
   text-align: justify;
   font-weight: 300;
   font-style: italic;
-  padding: 0.4 1.2rem;
+  padding: 0.25rem 0 0.25rem 1rem;
   line-height: 1.4;
   font-size: 0.9rem;
 }
@@ -55,7 +99,7 @@
 
 .price-container {
   margin-top: 0.5rem;
-  border-top: dashed 2px gray;
+  border-top: dashed 2px $color-bg-overlay;
   padding-top: 0.75rem;
   padding-left: auto;
   display: flex;
@@ -75,13 +119,7 @@
   font-size: 1.3rem;
   color: $color-green;
   font-weight: 700;
-  text-shadow: rgba(29, 32, 33, 0.8) 2px 2px 0px;
-}
-
-.sm-text {
-  font-size: 0.8rem;
-  font-style: italic;
-  font-weight: 200;
+  text-shadow: $text-shaddow;
 }
 
 .btn-1,
@@ -98,9 +136,12 @@
   background-color: $color-bg-surface;
   font-size: 0.9rem;
   width: 100%;
+  font-weight: 500;
+  box-shadow: $btn-shaddow;
 }
 
 .btn-1 {
+  text-shadow: $text-shaddow;
   border-color: $color-orange;
   color: $color-orange;
 }
@@ -114,4 +155,147 @@
   display: grid;
   grid-template-columns: 9fr 4fr 4fr;
   gap: 1rem;
+}
+
+.section-header {
+  color: $color-orange;
+}
+
+.subtitle {
+  font-weight: 500;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.text-col {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+.m-text {
+  color: orange;
+  text-shadow: $text-shaddow;
+  font-weight: 500;
+}
+
+.sm-text {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 200;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: $color-orange;
+  border-radius: 4px;
+
+  td {
+    margin: auto;
+  }
+}
+
+.spec-row {
+  &:nth-child(odd) {
+    background-color: $color-row-light;
+  }
+
+  &:nth-child(even) {
+    background-color: $color-row-dark;
+  }
+}
+
+.specyfication,
+.description {
+  margin-top: -0.5rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  font-weight: 400;
+  font-size: 0.8em;
+  text-align: justify;
+  border-left: solid 4px $color-orange;
+  border-radius: 4px;
+}
+
+.spec-key {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 500;
+  text-wrap: none;
+  white-space: nowrap;
+}
+
+.spec-value {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.orange {
+  color: $color-orange;
+}
+
+.similar-product {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  gap: 1rem;
+  padding: 0.35rem 1rem;
+  border-left: solid 4px $color-orange;
+  border-radius: 4px;
+
+  transition: border ease-out 0.1s;
+
+  &:hover {
+    border-left: solid 6px $color-orange;
+    cursor: pointer;
+
+    .similar-product-content {
+      h3 {
+        color: $color-orange;
+      }
+    }
+  }
+}
+
+.similar-product-img {
+  display: flex;
+  flex: 2;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: $color-bg-input;
+  overflow: hidden;
+  border: 2px solid $color-bg-overlay;
+}
+
+.similar-product-content {
+  display: flex;
+  flex: 3;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .price-container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    justify-content: left;
+    align-items: center;
+  }
+}
+
+.similar-product-title {
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+#specyfikacja {
+  margin-top: auto;
 }

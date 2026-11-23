@@ -1,8 +1,9 @@
 @use "sass:color";
 @use "./footer-mixin";
-@use "./nav-mixin"; //@oskif - add my mixins file
+@use "./nav-mixin";
 @use "./shopitem.scss";
-
+@use "./components/spectable.scss";
+@use "./components/similarproduct.scss";
 /* ==========================================================================
    1. FONTS & IMPORTS
    ========================================================================== */

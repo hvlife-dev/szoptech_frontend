@@ -8,3 +8,5 @@ pub mod recommendations;
 pub mod text;
 pub mod toaster;
 pub mod toggle;
+pub mod spectable;
+pub mod similarproduct;

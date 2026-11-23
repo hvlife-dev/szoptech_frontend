@@ -1,0 +1,42 @@
+@use "../colors" as *;
+
+$color-row-light: rgba(255, 255, 255, 0.1);
+$color-row-dark: rgba(0, 0, 0, 0.1);
+
+.spec-row {
+  &:nth-child(odd) {
+    background-color: $color-row-light;
+  }
+
+  &:nth-child(even) {
+    background-color: $color-row-dark;
+  }
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: $color-orange;
+  border-radius: 4px;
+
+  td {
+    margin: auto;
+  }
+}
+
+.spec-key {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 500;
+  text-wrap: none;
+  white-space: nowrap;
+}
+
+.spec-value {
+  width: 100%;
+  padding: 1rem;
+  padding-left: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}

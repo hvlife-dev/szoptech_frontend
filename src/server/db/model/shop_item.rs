@@ -1,5 +1,12 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 use crate::server::db::model::{category::Category, pb::PocketBase, producer::Producer, tag::Tag};
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Pictures {
+    pub pictures: Vec<String>,
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ShopItem {
@@ -8,11 +15,13 @@ pub struct ShopItem {
     pub id: String,
     pub title: String,
     pub sub_title: Option<String>,
-    pub tags: Option<Vec<Tag>>,
-    pub category: Option<Category>,
-    pub producer: Option<Producer>,
+    pub tags: Vec<String>,
+    pub category: Option<String>,
+    pub producer: Option<String>,
     pub description: String,
-    pub specyfication: Option<Vec<(String,String)>>,
+    pub pictures: Option<Pictures>,
+    pub specyfication: Option<HashMap<String, String>>,
     pub price: u32,
-    pub is_avialable: bool
+    pub quantity: u32,
+    pub is_available: bool,
 }

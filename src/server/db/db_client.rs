@@ -8,7 +8,7 @@ use crate::server::state::PbResponse;
 const API_URL: &'static str = "http://localhost:8090/api/collections";
 
 fn get_url(collection: &str) -> String {
-    String::from(format!("{API_URL}/{collection}/records?sort=-created&perPage=500"))
+    String::from(format!("{API_URL}/{collection}/records"))
 }
 
 pub async fn get_collection<T>(
@@ -58,6 +58,7 @@ where
         url = format!("{}?expand={}", url, expand);
     }
 
+    println!("{}",url);
 
     let response = reqwest::get(url)
         .await
@@ -77,3 +78,4 @@ where
 
     Ok(item)
 }
+

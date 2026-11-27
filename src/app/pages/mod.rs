@@ -7,3 +7,4 @@ pub mod projects;
 pub mod services;
 pub mod shopping;
 pub mod shopitemtmp;
+pub mod shopping2;

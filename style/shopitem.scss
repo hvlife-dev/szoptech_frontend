@@ -4,6 +4,10 @@ $shaddow: 4px 4px 20px -2px rgba(29, 32, 33, 0.6);
 $btn-shaddow: 4px 4px 6px -2px rgba(29, 32, 33, 0.6);
 $text-shaddow: 1px 1px 2px rgba(29, 32, 33, 0.7);
 
+.shop-item-container {
+  padding-bottom: 6rem;
+}
+
 .product-gallery {
   grid-column: 1;
   grid-row: 1;
@@ -203,6 +207,7 @@ $text-shaddow: 1px 1px 2px rgba(29, 32, 33, 0.7);
 
 .section-header {
   color: $color-orange;
+  font-size: 1.25em;
 }
 
 .subtitle {
@@ -248,10 +253,15 @@ $text-shaddow: 1px 1px 2px rgba(29, 32, 33, 0.7);
   margin-top: -0.5rem;
   padding: 0.25rem 0 0.25rem 1rem;
   font-weight: 400;
-  font-size: 0.8em;
-  text-align: justify;
+
   border-left: solid 4px $color-orange;
   border-radius: 4px;
+}
+
+.specyfication {
+  position: relative;
+  font-size: 0.8em;
+  text-align: justify;
 }
 
 .orange {
@@ -265,4 +275,69 @@ $text-shaddow: 1px 1px 2px rgba(29, 32, 33, 0.7);
 #polecane-produkty:last-child {
   border: 0;
   margin-bottom: 0;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul {
+    margin: 0.5em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ol,
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    padding-left: 1.5rem;
+
+    gap: 0.5rem;
+
+    li {
+      font-size: 0.9em;
+    }
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 0.9em;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+    font-size: 0.9em;
+  }
 }

@@ -40,9 +40,7 @@ pub fn ShoppingPage() -> impl IntoView {
         <SeoMetaTags />
 
         <div class="page-container-wide">
-
             <div class="shopping-hero-grid">
-
                 <div class="compact-shops-stack">
                     <A href="/contact" attr:class="card shop-card brand-contact">
                         <div class="shop-header">

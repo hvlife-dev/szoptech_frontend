@@ -21,7 +21,7 @@ use crate::app::pages::product::ProjectItemPage;
 use crate::app::pages::product::ShopItemPage;
 use crate::app::pages::projects::ProjectsPage;
 use crate::app::pages::services::ServicesPage;
-use crate::app::pages::shopping::ShoppingPage;
+use crate::app::pages::shopping2::ShoppingPage2;
 
 use crate::app::metatags::seomt::*;
 use leptos_meta::*;
@@ -29,17 +29,17 @@ use leptos_meta::*;
 pub fn shell(options: LeptosOptions) -> impl IntoView {
     view! {
         <!DOCTYPE html>
-        //@oskif
+        // @oskif
         <html lang="pl">
             <head>
-                <meta charset="utf-8"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <AutoReload options=options.clone() />
-                <HydrationScripts options/>
-                <MetaTags/>
+                <HydrationScripts options />
+                <MetaTags />
             </head>
             <body>
-                <App/>
+                <App />
             </body>
         </html>
     }
@@ -50,9 +50,9 @@ pub fn App() -> impl IntoView {
     provide_meta_context();
 
     view! {
-        <Stylesheet id="leptos" href="/pkg/frontend.css"/>
+        <Stylesheet id="leptos" href="/pkg/frontend.css" />
 
-        //@oskif
+        // @oskif
         <Meta name="language" content="pl" />
         <Meta property="og:type" content="website" />
         <Meta property="og:locale" content="pl_PL" />
@@ -60,40 +60,57 @@ pub fn App() -> impl IntoView {
         <Meta name="robots" content="index, follow" />
 
         <Link rel="conditional" href="https://szoptech.com/" />
-        <Link rel="icon" type_="image/x-icon" href="/favicon.svg"/>
-
+        <Link rel="icon" type_="image/x-icon" href="/favicon.svg" />
 
         // <Script>
-        //     r#"
-        //       var _paq = window._paq = window._paq || [];
-        //       _paq.push(['enableLinkTracking']);
-        //       (function() {
-        //         var u="//sys.szoptech.com/";
-        //         _paq.push(['setTrackerUrl', u+'c']);
-        //         _paq.push(['setSiteId', '1']);
-        //         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        //         g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
-        //       })();
-        //     "#
+        // r#"
+        // var _paq = window._paq = window._paq || [];
+        // _paq.push(['enableLinkTracking']);
+        // (function() {
+        // var u="//sys.szoptech.com/";
+        // _paq.push(['setTrackerUrl', u+'c']);
+        // _paq.push(['setSiteId', '1']);
+        // var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        // g.async=true; g.src=u+'t.js'; s.parentNode.insertBefore(g,s);
+        // })();
+        // "#
         // </Script>
 
         <Router>
-            <Mt/>
+            <Mt />
             <Routes transition=true fallback=|| "Page not found.".into_view()>
                 <ParentRoute path=path!("/") view=Navbar>
                     // @oskif
                     // Add SeoMetaTags in Router
+
                     <Route path=path!("") view=HomePage />
                     <Route path=path!("services") view=ServicesPage />
                     <Route path=path!("projects") view=ProjectsPage />
                     <Route path=path!("pricing") view=PricingPage />
                     <Route path=path!("contact") view=ContactPage />
-                    <Route path=path!("shopping") view=ShoppingPage />
+                    <Route path=path!("shopping") view=ShoppingPage2 />
                     <Route path=path!("test") view=TmpShopItem />
-                    <Route path=path!("/client/:id") view=ClientPage/>
-                    <Route path=path!("/store/:id") view=ShopItemPage ssr=leptos_router::SsrMode::Async />
-                    <Route path=path!("/estimate/:id") view=PricingItemPage ssr=leptos_router::SsrMode::Async />
-                    <Route path=path!("/project/:id") view=ProjectItemPage ssr=leptos_router::SsrMode::Async />
+                    <Route path=path!("/client/:id") view=ClientPage />
+                    // <Route
+                    // path=path!("/store/:id")
+                    // view=ShopItemPage
+                    // ssr=leptos_router::SsrMode::Async
+                    // />
+                    <Route
+                        path=path!("/store/:id")
+                        view=TmpShopItem
+                        ssr=leptos_router::SsrMode::Async
+                    />
+                    <Route
+                        path=path!("/estimate/:id")
+                        view=PricingItemPage
+                        ssr=leptos_router::SsrMode::Async
+                    />
+                    <Route
+                        path=path!("/project/:id")
+                        view=ProjectItemPage
+                        ssr=leptos_router::SsrMode::Async
+                    />
                 </ParentRoute>
             </Routes>
         </Router>

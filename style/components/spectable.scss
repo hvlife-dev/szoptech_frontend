@@ -40,3 +40,23 @@ $color-row-dark: rgba(0, 0, 0, 0.1);
   font-weight: 600;
   text-align: center;
 }
+
+.show-more {
+  padding: 0.4rem 0.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: orange;
+  font-weight: 500;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.show-more-wrapper {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: 100%;
+  margin-top: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}
